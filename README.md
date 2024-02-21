@@ -5,7 +5,7 @@ Spring Boot Project Template
 ## 사용된 기술
 
 - Java SDK 17
-- Spring Boot 2.7.9
+- Spring Boot 3.2.2
 - H2
 
 ## 기능
