@@ -1,5 +1,6 @@
 # springboot-template
 Spring Boot Project Template
+
 스프링 부트 프로젝트 템플릿
 
 ## 사용된 기술
