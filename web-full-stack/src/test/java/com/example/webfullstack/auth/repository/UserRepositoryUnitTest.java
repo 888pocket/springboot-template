@@ -17,7 +17,7 @@ class UserRepositoryUnitTest {
     private UserRepository userRepository;
 
     @Test
-    public void testSaveUser() {
+    public void saveUser_UnitTest() {
         // Given
         User user = User.builder()
                 .name("John")
@@ -36,7 +36,7 @@ class UserRepositoryUnitTest {
     }
 
     @Test
-    public void testFindById() {
+    public void findById_UnitTest() {
         // Given
         User user = User.builder()
                 .name("John")
@@ -55,7 +55,7 @@ class UserRepositoryUnitTest {
     }
 
     @Test
-    public void testFindByEmail() {
+    public void findByEmail_UnitTest() {
         // Given
         String email = "john@example.com";
         User user = User.builder()
@@ -75,7 +75,7 @@ class UserRepositoryUnitTest {
     }
 
     @Test
-    public void testSaveAndDeleteUser() {
+    public void saveAndDeleteUser_UnitTest() {
         // Given
         User user = User.builder()
                 .name("John")
