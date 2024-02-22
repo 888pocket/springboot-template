@@ -10,7 +10,7 @@ Spring Boot Project Template
 
 ## 기능 (web-full-stack)
 - [x] H2 연결
-- [ ] CRUD api
+- [x] CRUD api
 - [ ] 동시성 테스트
 - [ ] 유닛 테스트
 - [ ] 통합 테스트
