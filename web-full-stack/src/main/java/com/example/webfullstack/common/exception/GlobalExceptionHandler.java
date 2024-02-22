@@ -1,6 +1,7 @@
 package com.example.webfullstack.common.exception;
 
 import com.example.webfullstack.common.dto.ExceptionResponse;
+import io.micrometer.common.util.StringUtils;
 import java.nio.file.AccessDeniedException;
 import java.util.ArrayList;
 import java.util.List;
@@ -39,7 +40,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Object> handleException(AccessDeniedException e) {
         HttpStatus status = HttpStatus.FORBIDDEN;
         ExceptionResponse response = new ExceptionResponse(
-                e.getMessage().isBlank() ? "Access denied" : e.getMessage(),
+                StringUtils.isBlank(e.getMessage()) ? "Access denied" : e.getMessage(),
                 status);
         return new ResponseEntity<>(response, status);
     }
@@ -48,7 +49,7 @@ public class GlobalExceptionHandler {
     public ResponseEntity<Object> handleException(NoSuchElementException e) {
         HttpStatus status = HttpStatus.NOT_FOUND;
         ExceptionResponse response = new ExceptionResponse(
-                e.getMessage().isBlank() ? "No such element" : e.getMessage(),
+                StringUtils.isBlank(e.getMessage()) ? "No such element" : e.getMessage(),
                 status);
         return new ResponseEntity<>(response, status);
     }
