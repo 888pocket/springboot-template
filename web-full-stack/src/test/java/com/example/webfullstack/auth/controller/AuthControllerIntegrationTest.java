@@ -22,7 +22,7 @@ class AuthControllerIntegrationTest {
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(
                                 "{\"name\": \"testUser\","
-                                        + "\"email\": \"test@mail.com\","
+                                        + "\"email\": \"test@example.com\","
                                         + "\"password\": \"testPassword\"}"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
@@ -46,9 +46,9 @@ class AuthControllerIntegrationTest {
         mockMvc.perform(MockMvcRequestBuilders.put("/auth/1")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(
-                                "{\"name\": \"modifyUser\","
-                                        + "\"email\": \"modify@mail.com\","
-                                        + "\"password\": \"modifyPassword\"}"))
+                                "{\"name\": \"updateUser\","
+                                        + "\"email\": \"update@example.com\","
+                                        + "\"password\": \"updatePassword\"}"))
                 .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
