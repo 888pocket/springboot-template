@@ -17,7 +17,7 @@ Spring Boot Project Template
 - [ ] e2e 테스트
 - [ ] 로거
 - [ ] 커스텀 익셉션
-- [ ] 익셉션 핸들러
+- [x] 익셉션 핸들러
 - [ ] jwt / 세션 기반 간단한 인증 암호화
 
 ## 기능 (web-content)
