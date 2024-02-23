@@ -12,7 +12,7 @@ Spring Boot Project Template
 ## 기능 (web-full-stack)
 - [x] H2 연결
 - [x] CRUD api [<U>Link</U>](web-full-stack/src/main/java/com/example/webfullstack/auth/controller/AuthController.java)
-- [x] 동시성 테스트
+- [x] 동시성 테스트 [<U>Link</U>](web-full-stack/src/test/java/com/example/webfullstack/product/service/ProductServiceConcurrentTest.java)
 - [x] 유닛 테스트 [<U>Link</U>](web-full-stack/src/test/java/com/example/webfullstack/auth/controller/AuthControllerUnitTest.java)
 - [x] 통합 테스트 [<U>Link</U>](web-full-stack/src/test/java/com/example/webfullstack/auth/controller/AuthControllerIntegrationTest.java)
 - [x] e2e 테스트 [<U>Link</U>](web-full-stack/src/test/java/com/example/webfullstack/auth/controller/AuthControllerE2ETest.java)
