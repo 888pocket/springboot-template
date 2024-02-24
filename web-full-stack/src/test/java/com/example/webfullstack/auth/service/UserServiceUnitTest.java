@@ -3,17 +3,20 @@ package com.example.webfullstack.auth.service;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.when;
 
 import com.example.webfullstack.auth.domain.dto.request.UserRequest;
 import com.example.webfullstack.auth.domain.dto.response.UserResponse;
 import com.example.webfullstack.auth.domain.entity.User;
 import com.example.webfullstack.auth.repository.UserRepository;
+import com.example.webfullstack.security.WebSecurityConfig;
 import java.util.Optional;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 class UserServiceUnitTest {
 
@@ -22,10 +25,16 @@ class UserServiceUnitTest {
     @Mock
     private UserRepository userRepository;
 
+    @Mock
+    private WebSecurityConfig webSecurityConfig;
+
+    @Mock
+    private PasswordEncoder passwordEncoder;
+
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        userService = new UserService(userRepository);
+        userService = new UserService(userRepository, webSecurityConfig);
     }
 
     @Test
@@ -37,6 +46,8 @@ class UserServiceUnitTest {
                 .password("password").build();
         User user = new User("John", "john@example.com", "password");
         when(userRepository.save(any(User.class))).thenReturn(user);
+        when(webSecurityConfig.passwordEncoder()).thenReturn(passwordEncoder);
+        when(passwordEncoder.encode(anyString())).thenReturn("encodedPassword");
 
         // When
         Long userId = userService.createUser(request);

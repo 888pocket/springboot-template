@@ -19,7 +19,7 @@ Spring Boot Project Template
 - [x] 로거
 - [x] 커스텀 익셉션 [<U>Link</U>](web-full-stack/src/main/java/com/example/webfullstack/common/exception/CustomException.java)
 - [x] 익셉션 핸들러 [<U>Link</U>](web-full-stack/src/main/java/com/example/webfullstack/common/exception/GlobalExceptionHandler.java)
-- [ ] jwt / 세션 기반 간단한 인증 암호화
+- [x] jwt 기반 인증
 
 ## 기능 (web-content)
 - `hello, world!`를 출력하는 기본 예제 ([참고](https://spring.io/guides/gs/serving-web-content))

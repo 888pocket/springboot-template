@@ -6,13 +6,13 @@ import java.nio.file.AccessDeniedException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
@@ -53,6 +53,15 @@ public class GlobalExceptionHandler {
                 StringUtils.isBlank(e.getMessage()) ? "No such element" : e.getMessage(),
                 status);
 
+        return new ResponseEntity<>(response, status);
+    }
+
+    @ExceptionHandler(value = TokenRefreshException.class)
+    @ResponseStatus(HttpStatus.FORBIDDEN)
+    public ResponseEntity<Object> handleTokenRefreshException(TokenRefreshException e) {
+        HttpStatus status = HttpStatus.FORBIDDEN;
+        ExceptionResponse response = new ExceptionResponse(e.getMessage(),
+                status);
         return new ResponseEntity<>(response, status);
     }
 
